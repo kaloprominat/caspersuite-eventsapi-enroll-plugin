@@ -37,28 +37,17 @@ public class CatchMobileDeviceEnroll implements JAMFEventNotificationMonitor {
 	
 	public void executeScript(JAMFEventNotificationParameter event) {
 		
-		//Write to log any event
-		
+		//	Write to log any event
+
 		writeEventToLog(event.getEventType(), event.getInfoMap());
 		
-//		if (event.getEventType().getIdentifier() == EventType.EventTypeIdentifier.MobileDeviceCommandCompleted) {
-		
 		if ( event.getEventType().getIdentifier() == EventType.EventTypeIdentifier.MobileDeviceEnrolled ) {
-
-//			MobileDeviceCommandCompleted mdcc = (MobileDeviceCommandCompleted)event.getEventType();
-			
-//			writeToLog("CATCH COMMAND: " + mdcc.getCommand() + "\n");
-//			writeToLog("AND PROFILE: " + mdcc.getProfileID() + "\n");
 			
 			MobileDeviceEventShell enrollmentObject = (MobileDeviceEventShell)event.getEventObject();
+			
+							
+			//	Get the info we need from the Events API
 
-			
-			//if ( mdcc.getCommand().equals("InstallProfile") && mdcc.getProfileID() == -2 ) {
-			
-			writeToLog("And so matched if statement\n");
-			
-				
-			//Get the info we need from the Events API
 			String deviceUDID = enrollmentObject.getUdid();
 			String deviceSerial = enrollmentObject.getSerialNumber();
 			String userDirectoryID = enrollmentObject.getUserDirectoryID();
@@ -77,7 +66,6 @@ public class CatchMobileDeviceEnroll implements JAMFEventNotificationMonitor {
 				writeToLog(e.getMessage());
 			}
 		
-			//}
 		}
 		
 		
