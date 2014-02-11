@@ -9,3 +9,5 @@ This repo contains Eclipse project and Makefile for building plugin.
 make plugin - for building JAR at dist/plugin
 make clean - for clean directories
 ```
+
+Depends on JDK 6
